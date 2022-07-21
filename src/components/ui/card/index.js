@@ -1,30 +1,30 @@
 import styled from 'styled-components'
 
-export const Card = styled.div.attrs(()=>({
-    className: 'card'
+export const Card = styled.div.attrs(() => ({
+  className: 'card'
 }))``
 
-export const CardBody = styled.div.attrs(()=>({
-    className: 'card-body'
+export const CardBody = styled.div.attrs(() => ({
+  className: 'card-body'
 }))``
 
-export const CardFooter = styled.div.attrs(()=>({
-    className: 'card-footer'
+export const CardFooter = styled.div.attrs(() => ({
+  className: 'card-footer'
 }))``
 
-export const CardTitle = styled.h3.attrs(()=>({
-    className: 'card-title'
+export const CardTitle = styled.h3.attrs(() => ({
+  className: 'card-title'
 }))`
-    overflow: hidden;
-    padding-right: 10px;
+  overflow: hidden;
+  padding-right: 10px;
 `
 
-export const CardHead = styled.div.attrs(()=>({
-    className: 'card-header'
+export const CardHead = styled.div.attrs(() => ({
+  className: 'card-header'
 }))`
-    overflow: hidden;
+  overflow: hidden;
 `
 
-export const CardOptions = styled.div.attrs(()=>({
-    className: 'card-options'
+export const CardOptions = styled.span.attrs(() => ({
+  className: 'card-options'
 }))``

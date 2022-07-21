@@ -1,0 +1,29 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["import"],
+  "rules": {
+    "quotes": ["warn", "single", { "avoidEscape": true }],
+    "import/order": [
+      "warn",
+      {
+        "alphabetize": {
+          "order": "asc"
+        },
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "@tootz/**",
+            "group": "external",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always"
+      }
+    ]
+  }
+}

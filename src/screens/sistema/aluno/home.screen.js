@@ -1,47 +1,47 @@
-import React, { Component, Fragment } from "react";
-import api from "../../../services/api";
-import { range } from "../../../util/auxiliaryFunctions.util";
-import { Link } from "react-router-dom";
+import React, { Component, Fragment } from 'react'
 
-import TemplateSistema from "../../../components/templates/sistema.template";
-import Card from "../../../components/ui/card/card.component";
-import CardHead from "../../../components/ui/card/cardHead.component";
-import CardTitle from "../../../components/ui/card/cardTitle.component";
-import CardOptions from "../../../components/ui/card/cardOptions.component";
-import CardBody from "../../../components/ui/card/cardBody.component";
-import CardFooter from "../../../components/ui/card/cardFooter.component";
-import Row from "../../../components/ui/grid/row.component";
-import Col from "../../../components/ui/grid/col.component";
-import CardLoader from "../../../components/ui/card/cardLoader.component";
-import profileImg from "../../../assets/perfil.png";
+import { Link } from 'react-router-dom'
 
-import SupportedLanguages from "../../../config/SupportedLanguages";
+import profileImg from '../../../assets/perfil.png'
+import TemplateSistema from '../../../components/templates/sistema.template'
+import Card from '../../../components/ui/card/card.component'
+import CardBody from '../../../components/ui/card/cardBody.component'
+import CardFooter from '../../../components/ui/card/cardFooter.component'
+import CardHead from '../../../components/ui/card/cardHead.component'
+import CardLoader from '../../../components/ui/card/cardLoader.component'
+import CardOptions from '../../../components/ui/card/cardOptions.component'
+import CardTitle from '../../../components/ui/card/cardTitle.component'
+import Col from '../../../components/ui/grid/col.component'
+import Row from '../../../components/ui/grid/row.component'
+import SupportedLanguages from '../../../config/SupportedLanguages'
+import api from '../../../services/api'
+import { range } from '../../../util/auxiliaryFunctions.util'
 
 export default class HomeAlunoScreen extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       minhasTurmas: [],
       loadingTurmas: false,
-      descriptions: [],
-    };
+      descriptions: []
+    }
   }
 
   async componentDidMount() {
-    await this.getMinhasTurmas();
-    document.title = "Inicio - Aluno";
+    await this.getMinhasTurmas()
+    document.title = 'Inicio - Aluno'
   }
   async getMinhasTurmas() {
     try {
-      this.setState({ loadingTurmas: true });
-      const response = await api.get('/class');
+      this.setState({ loadingTurmas: true })
+      const response = await api.get('/class')
       this.setState({
         minhasTurmas: [...response.data],
-        loadingTurmas: false,
-      });
+        loadingTurmas: false
+      })
     } catch (err) {
-      this.setState({ loadingTurmas: false });
-      console.log(err);
+      this.setState({ loadingTurmas: false })
+      console.log(err)
     }
   }
 
@@ -49,42 +49,42 @@ export default class HomeAlunoScreen extends Component {
     this.setState(
       {
         ...this.state,
-        contentInputSeach: e.target.value,
+        contentInputSeach: e.target.value
       } /*,()=>this.getMinhasTurmas()*/
-    );
+    )
   }
   filterSeash(e) {
-    this.getMinhasTurmas();
+    this.getMinhasTurmas()
   }
   handleSelectFieldFilter(e) {
     this.setState(
       {
-        fieldFilter: e.target.value,
+        fieldFilter: e.target.value
       } /*,()=>this.getMinhasTurmas()*/
-    );
+    )
   }
   clearContentInputSeach() {
     this.setState(
       {
-        contentInputSeach: "",
+        contentInputSeach: ''
       },
       () => this.getMinhasTurmas()
-    );
+    )
   }
 
   render() {
-    const { loadingTurmas, minhasTurmas } = this.state;
+    const { loadingTurmas, minhasTurmas } = this.state
 
     return (
       <TemplateSistema active="home">
         <Row>
           {loadingTurmas ? (
-            range(8).map((i) => (
+            range(8).map(i => (
               <Fragment key={i}>
                 <Col xs={12} md={6}>
-                  <CardLoader style={{ height: "178px" }}>
+                  <CardLoader style={{ height: '178px' }}>
                     <div
-                      style={{ margin: "0px auto", paddingTop: "170px" }}
+                      style={{ margin: '0px auto', paddingTop: '170px' }}
                     ></div>
                   </CardLoader>
                 </Col>
@@ -93,7 +93,7 @@ export default class HomeAlunoScreen extends Component {
           ) : minhasTurmas.length === 0 ? (
             <Col xs={12} textCenter>
               <div className="alert alert-info" role="alert">
-                Você ainda não está em nenhuma turma{" "}
+                Você ainda não está em nenhuma turma{' '}
                 <i className="fa fa-frown-o" />. Caso tenha o código de uma,
                 poderá solicitar acesso a ela em
                 <Link to="/aluno/turmasAbertas">
@@ -102,26 +102,26 @@ export default class HomeAlunoScreen extends Component {
               </div>
             </Col>
           ) : (
-            minhasTurmas.map((turma) => (
+            minhasTurmas.map(turma => (
               <Fragment key={turma.id}>
                 <Col xs={12} lg={6}>
                   <Card>
                     <CardHead
                       style={{
-                        backgroundColor: "rgba(190,190,190,0.2)",
-                        maxHeight: "56px",
+                        backgroundColor: 'rgba(190,190,190,0.2)',
+                        maxHeight: '56px'
                       }}
                     >
                       <CardTitle>
-                        <i className="fa fa-users" /> {turma.name} -{" "}
+                        <i className="fa fa-users" /> {turma.name} -{' '}
                         {turma.year}.{turma.semester}
                       </CardTitle>
                       <CardOptions>
                         <p
                           style={{
-                            fontSize: "11px",
-                            fontWeight: "bold",
-                            margin: "0px",
+                            fontSize: '11px',
+                            fontWeight: 'bold',
+                            margin: '0px'
                           }}
                         >
                           Código: {turma.code}
@@ -131,7 +131,7 @@ export default class HomeAlunoScreen extends Component {
                     <CardBody className="card-class overflow-auto">
                       <p>
                         <b>Linguagens: </b>
-                        {turma.languages.map((language) => {
+                        {turma.languages.map(language => {
                           return (
                             <img
                               className="ml-2"
@@ -140,7 +140,7 @@ export default class HomeAlunoScreen extends Component {
                               src={SupportedLanguages[language].icon}
                               alt={language}
                             />
-                          );
+                          )
                         })}
                       </p>
                       <p>
@@ -151,20 +151,20 @@ export default class HomeAlunoScreen extends Component {
                       <div
                         className="avatar d-block"
                         style={{
-                          float: "left",
-                          margin: "5px 5px 5px 0px",
+                          float: 'left',
+                          margin: '5px 5px 5px 0px',
                           backgroundImage: `url(${
                             turma.author.urlImage || profileImg
-                          })`,
+                          })`
                         }}
                       />
                       <div
                         style={{
-                          margin: "4px",
-                          alignItems: "center",
-                          textAlign: "left",
-                          float: "left",
-                          fontSize: "10px",
+                          margin: '4px',
+                          alignItems: 'center',
+                          textAlign: 'left',
+                          float: 'left',
+                          fontSize: '10px'
                         }}
                       >
                         {turma.author.name}
@@ -174,9 +174,9 @@ export default class HomeAlunoScreen extends Component {
                       <Link to={`/aluno/turma/${turma.id}/dashboard`}>
                         <button
                           style={{
-                            float: "right",
-                            backgroundColor: "#2FB0C6",
-                            borderColor: "#2FB0C6",
+                            float: 'right',
+                            backgroundColor: '#2FB0C6',
+                            borderColor: '#2FB0C6'
                           }}
                           className="btn btn-primary mr-2"
                         >
@@ -214,6 +214,6 @@ export default class HomeAlunoScreen extends Component {
           )}
         </Row>
       </TemplateSistema>
-    );
+    )
   }
 }

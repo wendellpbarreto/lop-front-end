@@ -1,6 +1,8 @@
-import React from "react";
-import { Route } from "react-router-dom";
-import { PrivateRoutes } from "./privateRoutes.util";
+import React from 'react'
+
+import { Route } from 'react-router-dom'
+
+import { PrivateRoutes } from './privateRoutes.util'
 
 const exportRoutes = routes => {
   const routesMap = routes.map((route, index) => {
@@ -12,9 +14,8 @@ const exportRoutes = routes => {
           path={route.path}
           component={route.component}
         />
-      );
-    } 
-    else{
+      )
+    } else {
       return (
         <PrivateRoutes
           perfil={route.perfil}
@@ -23,12 +24,11 @@ const exportRoutes = routes => {
           path={route.path}
           component={route.component}
         />
-      );
+      )
     }
-    
-  });
-  
-  return routesMap;
-};
+  })
 
-export default exportRoutes;
+  return routesMap
+}
+
+export default exportRoutes

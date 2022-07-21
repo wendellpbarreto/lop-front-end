@@ -228,6 +228,7 @@ const ClassListSubscreen = props => {
                           >
                             <label htmlFor="class-list-editor">
                               <SunEditor
+                                id="class-list-editor"
                                 name="class-list-editor"
                                 lang="pt_br"
                                 height="auto"

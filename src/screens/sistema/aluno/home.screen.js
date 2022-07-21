@@ -131,7 +131,7 @@ export default class HomeAlunoScreen extends Component {
                     <CardBody className="card-class overflow-auto">
                       <p>
                         <b>Linguagens: </b>
-                        {turma.languages.map(language => {
+                        {JSON.parse(turma.languages).map(language => {
                           return (
                             <img
                               className="ml-2"

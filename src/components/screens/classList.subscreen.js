@@ -226,24 +226,27 @@ const ClassListSubscreen = props => {
                             className="w-100"
                             ref={el => (editorRef.current[i] = el)}
                           >
-                            <SunEditor
-                              lang="pt_br"
-                              height="auto"
-                              disable={true}
-                              showToolbar={false}
-                              setContents={question.description}
-                              setDefaultStyle="font-size: 15px; text-align: justify"
-                              onLoad={() => {
-                                editorRef.current[i].classList.add(
-                                  'sun-editor-wrap'
-                                )
-                              }}
-                              setOptions={{
-                                toolbarContainer: '#toolbar_container',
-                                resizingBar: false,
-                                katex: katex
-                              }}
-                            />
+                            <label htmlFor="class-list-editor">
+                              <SunEditor
+                                name="class-list-editor"
+                                lang="pt_br"
+                                height="auto"
+                                disable={true}
+                                showToolbar={false}
+                                setContents={question.description}
+                                setDefaultStyle="font-size: 15px; text-align: justify"
+                                onLoad={() => {
+                                  editorRef.current[i].classList.add(
+                                    'sun-editor-wrap'
+                                  )
+                                }}
+                                setOptions={{
+                                  toolbarContainer: '#toolbar_container',
+                                  resizingBar: false,
+                                  katex: katex
+                                }}
+                              />
+                            </label>
                           </div>
                         </CardBody>
                       </div>

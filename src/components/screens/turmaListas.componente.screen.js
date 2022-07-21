@@ -21,9 +21,9 @@ export default props => {
               <Card className="mb-2">
                 <CardHead>
                   <Col xs={5}>
-                    <h4 style={{ margin: '0px' }}>
+                    <h2 style={{ margin: '0px' }} className="h4">
                       <b>{lista.title}</b>
-                    </h4>
+                    </h2>
                   </Col>
                   <ProgressBar
                     numQuestions={lista.questionsCount}

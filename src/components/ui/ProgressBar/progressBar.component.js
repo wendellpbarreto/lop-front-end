@@ -43,9 +43,7 @@ export default ({
   return (
     <div style={{ width: widthPercentage + '%' }}>
       <div className="clearfix">
-        <div className="float-left">
-          <strong>{`${percentageInfo}`}</strong>
-        </div>
+        <strong className="float-left">{`${percentageInfo}`}</strong>
         <div className="float-right">
           <small className="text-muted">{dateRange}</small>
         </div>

@@ -75,6 +75,9 @@ const HeadPefilMenu = () => {
         data-target="#headerMenuCollapse"
       >
         <span className="header-toggler-icon" />
+        <span aria-label="Botão de menu" hidden>
+          Botão de menu
+        </span>
       </Link>
     </div>
   )

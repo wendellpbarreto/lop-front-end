@@ -19,7 +19,7 @@ const HeadPefilMenu = () => {
   }, [isLoged, history])
   return (
     <div className="d-flex">
-      <ul class="navigation pl-0">
+      <ul class="navigation pl-0 mb-0">
         <Link
           className="header-brand"
           to={`/${profile && profile.toLocaleLowerCase()}`}

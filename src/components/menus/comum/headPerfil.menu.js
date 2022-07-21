@@ -1,26 +1,36 @@
-import React, { useContext, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { AuthContext } from "src/contexts/authContext";
-import profileImg from "../../../assets/perfil.png"
+import React, { useContext, useEffect } from 'react'
+
+import { Link, useHistory } from 'react-router-dom'
+import { AuthContext } from 'src/contexts/authContext'
+
+import profileImg from '../../../assets/perfil.png'
 const HeadPefilMenu = () => {
+  const history = useHistory()
+  const {
+    user: { profile, name, urlImage },
+    isLoged,
+    handleLogout
+  } = useContext(AuthContext)
 
-  const history = useHistory();
-  const { user: { profile, name, urlImage }, isLoged, handleLogout } = useContext(AuthContext);
-
-  useEffect(()=>{
-    if(!isLoged){
-      history.push('/');
+  useEffect(() => {
+    if (!isLoged) {
+      history.push('/')
     }
-  },[isLoged, history]);
+  }, [isLoged, history])
   return (
     <div className="d-flex">
-      <Link className="header-brand" to={`/${profile && profile.toLocaleLowerCase()}`}>
-        <img
-          src="/assets/images/lop.svg"
-          className="header-brand-img"
-          alt="lop logo"
-        />
-      </Link>
+      <ul class="navigation pl-0">
+        <Link
+          className="header-brand"
+          to={`/${profile && profile.toLocaleLowerCase()}`}
+        >
+          <img
+            src="/assets/images/lop.svg"
+            className="header-brand-img"
+            alt="lop logo"
+          />
+        </Link>
+      </ul>
       <div className="d-flex order-lg-2 ml-auto">
         <div className="dropdown">
           <Link
@@ -44,7 +54,7 @@ const HeadPefilMenu = () => {
           <div className="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
             <Link className="dropdown-item" to={`/${profile}/perfil`}>
               <i className="dropdown-icon fe fe-user" /> Perfil
-              </Link>
+            </Link>
             <div className="dropdown-divider" />
             <button
               className="dropdown-item"
@@ -54,7 +64,7 @@ const HeadPefilMenu = () => {
               onClick={handleLogout}
             >
               <i className="dropdown-icon fe fe-log-out" /> Sair
-              </button>
+            </button>
           </div>
         </div>
       </div>
@@ -67,7 +77,7 @@ const HeadPefilMenu = () => {
         <span className="header-toggler-icon" />
       </Link>
     </div>
-  );
+  )
 }
 
-export default HeadPefilMenu;
+export default HeadPefilMenu

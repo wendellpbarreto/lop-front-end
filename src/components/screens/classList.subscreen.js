@@ -109,7 +109,7 @@ const ClassListSubscreen = props => {
     <>
       <Row className="mb-4">
         <Col className="col-12">
-          <h5 className="m-0">
+          <h1 className="m-0 h5">
             <i className="fa fa-users mr-2" aria-hidden="true" />
             {classRoon.name} - {classRoon.year}.{classRoon.semester}
             <i className="fa fa-angle-left ml-2 mr-2" />
@@ -140,7 +140,7 @@ const ClassListSubscreen = props => {
               </>
             )}
             {list.title}
-          </h5>
+          </h1>
         </Col>
       </Row>
       {isTeacher() && (

@@ -162,9 +162,9 @@ const ClassListSubscreen = props => {
           <Card>
             <CardHead style={{ margin: '0px' }}>
               <Col className="col-4 pl-0">
-                <h4 className="m-0">
+                <h2 className="m-0 h4">
                   <b>{list.title}</b>
-                </h4>
+                </h2>
               </Col>
               <ProgressBar
                 numQuestions={list.questionsCount}

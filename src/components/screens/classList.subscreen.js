@@ -1,9 +1,16 @@
 import React, { useEffect, useMemo, useRef, useState, useCallback } from 'react'
 
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogTitle from '@material-ui/core/DialogTitle'
+import katex from 'katex'
+import moment from 'moment'
+import { BsThreeDotsVertical } from 'react-icons/bs'
+import { FaCheck } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import SunEditor from 'suneditor-react'
 import 'suneditor/dist/css/suneditor.min.css' // Import Sun Editor's CSS File
-import katex from 'katex'
 
 import 'katex/dist/katex.min.css'
 import useClass from '../../hooks/useClass'
@@ -21,14 +28,6 @@ import {
 } from '../ui/card'
 import { Row, Col } from '../ui/grid'
 import { Load } from '../ui/load'
-
-import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
-import DialogContent from '@material-ui/core/DialogContent'
-import DialogTitle from '@material-ui/core/DialogTitle'
-import { FaCheck } from 'react-icons/fa'
-import { BsThreeDotsVertical } from 'react-icons/bs'
-import moment from 'moment'
 
 const ClassListSubscreen = props => {
   const profile = useMemo(

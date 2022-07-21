@@ -76,12 +76,12 @@ export default class Listas extends Component {
             {loadingInfoTurma ? (
               <div className="loader" style={{ margin: '0px auto' }}></div>
             ) : (
-              <h5 style={{ margin: '0px' }}>
+              <h1 style={{ margin: '0px' }} className="h5">
                 <i className="fa fa-users mr-2" aria-hidden="true" />
                 {turma && turma.name} - {turma && turma.year}.
                 {turma && turma.semester}
                 <i className="fa fa-angle-left ml-2 mr-2" /> Listas
-              </h5>
+              </h1>
             )}
           </Col>
         </Row>

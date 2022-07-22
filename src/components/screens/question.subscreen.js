@@ -626,6 +626,7 @@ const QuestionSubcscreen = props => {
               <label htmlFor="language">Linguagem:</label>
               <select
                 id="language"
+                aria-label="Linguagem"
                 className="form-control"
                 onChange={e => setLanguage(e.target.value)}
               >

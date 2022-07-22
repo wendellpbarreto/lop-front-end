@@ -563,20 +563,18 @@ const QuestionSubcscreen = props => {
                             <b>Exemplo de saída</b>
                           </td>
                         </tr>
-                        {question.results}
-                        {/* {question?.results &&
-                          question.results
-                            .map((res, i) => (
-                              <tr key={i}>
-                                <td>
-                                  <HTMLFormat>{res.inputs}</HTMLFormat>
-                                </td>
-                                <td>
-                                  <HTMLFormat>{res.output}</HTMLFormat>
-                                </td>
-                              </tr>
-                            ))
-                            .filter((res, i) => i < 2)} */}
+                        {JSON.parse(question.results)
+                          .map((res, i) => (
+                            <tr key={i}>
+                              <td>
+                                <HTMLFormat>{res.inputs}</HTMLFormat>
+                              </td>
+                              <td>
+                                <HTMLFormat>{res.output}</HTMLFormat>
+                              </td>
+                            </tr>
+                          ))
+                          .filter((res, i) => i < 2)}
                       </tbody>
                     </table>
                   </Col>
